@@ -1,0 +1,35 @@
+# Бинарные файлы и объектные файлы
+*.o
+*.obj
+*.exe
+*.out
+
+# Файлы компиляторов
+*.a
+*.so
+*.dll
+*.lib
+
+# Директории сборщиков (например, CMake)
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+
+# IDE и текстовые редакторы
+*.vscode/
+*.idea/
+*.iml
+
+# Логи и временные файлы
+*.log
+*.tmp
+
+# Директории сгенерированных файлов
+Lab_Filesystem/Backup/
+Lab_Filesystem/file*.txt
+Lab_Filesystem/renamed_file*.txt
+
+# Системные файлы
+thumbs.db
+.DS_Store
