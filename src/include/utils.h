@@ -1,15 +1,15 @@
 #pragma once
 
 #include <filesystem>
+#include <map>
 #include <string>
 
 namespace fs = std::filesystem;
 
-// Функции для работы с файловой системой
-void createDirectory(const fs::path& path);
-void createFiles(const fs::path& dir);
-void renameFiles(const fs::path& dir);
-void copyFiles(const fs::path& source, const fs::path& destination);
-void removeFiles(const fs::path& dir);
-void analyzeFiles(const fs::path& dir);
-void recursiveDirectoryTraversal(const fs::path& dir);
+std::map<std::string, uintmax_t> buildFileMap(const fs::path& dir);
+
+void saveMapToFile(const std::map<std::string, uintmax_t>& fileMap, const fs::path& filePath);
+
+std::map<std::string, uintmax_t> loadMapFromFile(const fs::path& filePath);
+
+void searchFile(const std::map<std::string, uintmax_t>& fileMap, const std::string& fileName);

@@ -1,0 +1,5 @@
+renamed_file1.txt 42
+renamed_file2.txt 42
+renamed_file3.txt 42
+renamed_file4.txt 42
+renamed_file5.txt 42

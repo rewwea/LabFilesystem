@@ -8,7 +8,7 @@ CXXFLAGS = -std=c++17 -Wall -I./src/include
 LDFLAGS = 
 
 # Makefile settings - Can be customized.
-APPNAME = myapp
+APPNAME = filesystem
 EXT = .cpp
 SRCDIR = src
 OBJDIR = obj

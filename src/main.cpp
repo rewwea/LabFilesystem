@@ -1,20 +1,29 @@
-#include "utils.h"
+#include <iostream>
+#include "../include/utils.h"
 
 int main() {
-    fs::path labDir = "Lab_Filesystem";
-    fs::path backupDir = labDir / "Backup";
+    fs::path directory = "Lab_Filesystem"; 
 
-    // Часть 1
-    createDirectory(labDir);
-    createFiles(labDir);
-    renameFiles(labDir);
-    createDirectory(backupDir);
-    copyFiles(labDir, backupDir);
-    removeFiles(labDir);
+    fs::path dataFile = "file_data.txt";  
 
-    // Часть 2
-    analyzeFiles(backupDir);
-    recursiveDirectoryTraversal(labDir);
+    try {
+        std::cout << "Обход директории и создание карты файлов...\n";
+        std::map<std::string, uintmax_t> fileMap = buildFileMap(directory);
+
+        std::cout << "Сохранение данных в файл...\n";
+        saveMapToFile(fileMap, dataFile);
+
+        std::cout << "Загрузка данных из файла...\n";
+        std::map<std::string, uintmax_t> loadedMap = loadMapFromFile(dataFile);
+
+        std::string searchName;
+        std::cout << "Введите имя файла для поиска: ";
+        std::cin >> searchName;
+        searchFile(loadedMap, searchName);
+
+    } catch (const fs::filesystem_error& e) {
+        std::cerr << "Ошибка работы с файловой системой: " << e.what() << '\n';
+    }
 
     return 0;
 }
